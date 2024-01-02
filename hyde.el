@@ -417,7 +417,7 @@ user"
   "Load up the posts and present them to the user"
   (interactive)
   ;; Clear the buffer
-  (toggle-read-only -1)
+  (read-only-mode nil)
   (delete-region (point-min) (point-max))
   ;; Insert headers
   (insert ":: Editing blog at:" hyde-home "\n")
@@ -444,7 +444,7 @@ user"
   ;; Insert footer
   (insert (concat "\n\n:: Hyde version " hyde/hyde-version "\n"))
   (insert "Key:\n-----\n . Committed and pushed\n C Committed but not yet pushed\n M Local saved changes (uncommitted)\n E Local unsaved changes\n")
-  (toggle-read-only 1))
+  (read-only-mode t))
 
 (defun hyde/read-config (hyde-home)
   "Loads up the config file to set the blog deployment and other information"
